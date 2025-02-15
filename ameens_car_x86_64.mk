@@ -14,9 +14,12 @@
 # limitations under the License.
 
 PRODUCT_PACKAGE_OVERLAYS := device/generic/car/common/overlay
+#PRODUCT_PACKAGE_OVERLAYS := vendor/Ameen/overlay
 
 $(call inherit-product, device/generic/car/emulator/aosp_car_emulator.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_x86_64.mk)
+
+#include device/AmCorp/ameens_car_x86_64/BoardConfig.mk
 
 EMULATOR_VENDOR_NO_SOUND := true
 PRODUCT_NAME := ameens_car_x86_64
@@ -24,5 +27,17 @@ PRODUCT_DEVICE := ameens_car_x86_64
 PRODUCT_BRAND := Amoid
 PRODUCT_MODEL := Amoid on x86_64 emulator
 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/AmCorp/ameens_car_x86_64/device_framework_matrix_product_ameens.xml
+
 PRODUCT_PACKAGES += \
-	MyCarApp
+	DemoService \
+	MyDemoApp \
+
+#enable my native service
+include vendor/Ameen/packages/services/MyNativeService/MyNativeService.mk
+
+#enable my hal service.
+include vendor/Ameen/hardware/interfaces/ameens/MyHalService.mk
+
+
+	

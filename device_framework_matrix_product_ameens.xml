@@ -1,0 +1,10 @@
+<compatibility-matrix type="framework" version="1.0">
+    <hal format="aidl" optional="true">
+        <name>android.hardware.ameens</name>
+        <version>1</version>
+        <interface>
+            <name>IAmeens</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
