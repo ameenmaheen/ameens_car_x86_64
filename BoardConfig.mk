@@ -44,5 +44,4 @@ $(warning >>> BoardConfig.mk for ameens_car_x86_64 is included <<<)
 
 #BOARD_SEPOLICY_DIRS += vendor/ameen/sepolicy
 BOARD_SEPOLICY_VENDOR_POLICY := true
-PRODUCT_PRIVATE_SEPOLICY_DIRS += sepolicy/private
-PRODUCT_PUBLIC_SEPOLICY_DIRS += sepolicy/public
+BOARD_SEPOLICY_DIRS += device/AmCorp/ameens_car_x86_64/sepolicy

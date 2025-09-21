@@ -7,3 +7,4 @@ binder_call(hal_ameens_default, hal_ameens_service)
 binder_use(hal_ameens_default)
 
 init_daemon_domain(hal_ameens_default)
+
