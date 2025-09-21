@@ -1,6 +1,6 @@
 <compatibility-matrix type="framework" version="1.0">
     <hal format="aidl" optional="true">
-        <name>android.hardware.ameens</name>
+        <name>com.ameens.testhal</name>
         <version>1</version>
         <interface>
             <name>IAmeens</name>

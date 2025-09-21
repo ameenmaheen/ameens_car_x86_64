@@ -27,7 +27,7 @@ include build/make/target/board/BoardConfigEmuCommon.mk
 
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
 
-BOARD_SEPOLICY_DIRS += device/generic/goldfish/sepolicy/x86
+#BOARD_SEPOLICY_DIRS += device/generic/goldfish/sepolicy/x86
 
 # Wifi.
 BOARD_WLAN_DEVICE           := emulator
@@ -39,3 +39,10 @@ WPA_SUPPLICANT_VERSION      := VER_0_8_X
 WIFI_DRIVER_FW_PATH_PARAM   := "/dev/null"
 WIFI_DRIVER_FW_PATH_STA     := "/dev/null"
 WIFI_DRIVER_FW_PATH_AP      := "/dev/null"
+
+$(warning >>> BoardConfig.mk for ameens_car_x86_64 is included <<<)
+
+#BOARD_SEPOLICY_DIRS += vendor/ameen/sepolicy
+BOARD_SEPOLICY_VENDOR_POLICY := true
+PRODUCT_PRIVATE_SEPOLICY_DIRS += sepolicy/private
+PRODUCT_PUBLIC_SEPOLICY_DIRS += sepolicy/public

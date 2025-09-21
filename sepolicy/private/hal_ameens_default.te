@@ -1,0 +1,9 @@
+type hal_ameens_default, domain;
+type hal_ameens_default_exec, exec_type, file_type, vendor_file_type;
+
+allow hal_ameens_default hal_ameens_service:service_manager add;
+
+binder_call(hal_ameens_default, hal_ameens_service)
+binder_use(hal_ameens_default)
+
+init_daemon_domain(hal_ameens_default)

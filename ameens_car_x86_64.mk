@@ -19,8 +19,6 @@ PRODUCT_PACKAGE_OVERLAYS := device/generic/car/common/overlay
 $(call inherit-product, device/generic/car/emulator/aosp_car_emulator.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_x86_64.mk)
 
-#include device/AmCorp/ameens_car_x86_64/BoardConfig.mk
-
 EMULATOR_VENDOR_NO_SOUND := true
 PRODUCT_NAME := ameens_car_x86_64
 PRODUCT_DEVICE := ameens_car_x86_64
@@ -30,14 +28,30 @@ PRODUCT_MODEL := Amoid on x86_64 emulator
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/AmCorp/ameens_car_x86_64/device_framework_matrix_product_ameens.xml
 
 PRODUCT_PACKAGES += \
-	DemoService \
-	MyDemoApp \
+    vndservicemanager \
+    MyDemoApp \
+#   vendor-privapp-permission.xml \
+# 	preinstalled-packages-vendor.xml \
+#   DemoService \
+#	  RecordingAppService \ 
+#	  BTMusicApp \
+
+
+#include vendor/Ameen/packages/apps/MyCarApp/MyCarApp.mk
 
 #enable my native service
-include vendor/Ameen/packages/services/MyNativeService/MyNativeService.mk
+#include vendor/Ameen/packages/services/MyNativeService/MyNativeService.mk
 
 #enable my hal service.
-include vendor/Ameen/hardware/interfaces/ameens/MyHalService.mk
+include vendor/ameen/hardware/interfaces/ameens/MyHalService.mk
 
+#TARGET_COPY_OUT_PRODUCT
+#TARGET_COPY_OUT_VENDOR
 
-	
+# Whitelisted packages per user type
+PRODUCT_COPY_FILES += \
+  vendor/ameen/etc/sysconfig/preinstalled-packages-vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/preinstalled-packages-vendor.xml \
+
+PRODUCT_COPY_FILES += \
+  vendor/ameen/etc/permissions/vendor-privapp-permission.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor-privapp-permission.xml \
+
